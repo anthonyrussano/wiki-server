@@ -1,0 +1,30 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        <header class="article-header">
+            <div class="article-meta">
+                <%- partial('post/cat') %>
+            </div>
+            <h1 class="article-title">
+                <span style="cursor: pointer;" onclick="myFunction3()"><%= post.title %></span>
+            </h1>
+            <div style="position: relative; margin: auto;">
+                <% if(page.image) { %>
+                    <img src="<%- site.data.resources.image_cloud %><%- site.data.resources.cloudinary_user %><%- site.data.resources.image_transform %><%- page.image %>" style="border-radius: 25px;border-width: 2px;border-style:inset;">
+                <% } else { %>
+                    <img src="<%- site.data.resources.image_cloud %><%- site.data.resources.cloudinary_user %><%- site.data.resources.image_transform %><%- page.title %>" style="border-radius: 25px;border-width: 2px;border-style:inset;">
+                <% } %>
+                <div style="text-align:justify;">
+                    <% if (page.tags && page.tags.length) { %>
+                        <br><b>Keywords</b><br><br> <%- list_tags(page.tags, { show_count: false, style: 'link', separator: ', ' }) %>
+                        <% } %>
+                <br><br><b>Outline</b>
+                </div>
+                <%- toc(page.content) %>
+
+            </div>
+        </header>
+        <div style="text-align:justify;" class="article-entry" itemprop="articleBody">
+            <%- post.content %>
+        </div>
+    </div>
+</article>
