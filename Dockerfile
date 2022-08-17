@@ -17,5 +17,6 @@ RUN chmod a+x /secrets_inject.sh
 RUN npm install hexo-cli -g
 RUN npm install
 COPY . /
+ENTRYPOINT ["/secrets_inject.sh"]
 CMD hexo server
 EXPOSE 4000
