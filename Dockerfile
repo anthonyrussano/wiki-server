@@ -13,7 +13,7 @@ FROM node:lts-alpine3.14
 
 WORKDIR /site
 COPY package.json /site
-
+COPY dep /site
 RUN npm install hexo-cli -g
 RUN npm install
 
