@@ -11,14 +11,11 @@
 ##
 FROM node:lts-alpine3.14
 
-WORKDIR /site
-COPY package.json /site
-COPY dep /site
-RUN chmod +x /site/dep
+COPY package.json /
+COPY secrets_inject.sh /
+RUN chmod a+x /secrets_inject.sh
 RUN npm install hexo-cli -g
 RUN npm install
-
-COPY . /site
-
+COPY . /
 CMD hexo server
 EXPOSE 4000
