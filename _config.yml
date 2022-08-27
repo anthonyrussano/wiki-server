@@ -84,8 +84,6 @@ theme: wiki
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: https://github.com/
 
 markdown:
   plugins:
@@ -105,12 +103,3 @@ markdown:
     permalinkSymbol: '¶'
     case: 0
     separator: '-'
-# Security
-encrypt: # hexo-blog-encrypt
-  abstract: Password required.
-  message: "Enter password."
-  tags:
-  - {name: Encrypted, password: &pass ABC123!}
-  wrong_pass_message: "Contact site admin for access."
-  theme: flip
-  wrong_hash_message: Without verification the content cannot be decrypted, but you can still have a look.
