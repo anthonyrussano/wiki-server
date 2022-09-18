@@ -1,7 +1,8 @@
 FROM node:lts-alpine3.14
-COPY package.json /
+WORKDIR /site
+COPY package.json /site
 RUN npm install hexo-cli -g
 RUN npm install
-COPY . /
+COPY . /site
 CMD hexo server
 EXPOSE 4000
